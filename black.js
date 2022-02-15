@@ -1,14 +1,21 @@
 
 let firstcard=randomcard()
 let secondcard=randomcard()
+let cards=[firstcard,secondcard]
+
+let hasBlackJack = false
+let isAlive = true
 
 let sum=firstcard+secondcard
+
 let message=""
-console.log(sum)
+
+//
 let messageEl=document.getElementById("message-el")
 let sumEl=document.querySelector("#sum-el")
 let cardEl=document.querySelector("#card-el")
-let cards=[firstcard,secondcard]
+
+
 
 function randomcard()
 {
@@ -39,20 +46,20 @@ function Game()
 
 if(sum<21)
 {
-  message="draw"
+  message="Please Draw another card"
 //  console.log("draw")
 }
 else if(sum==21)
 {
-  message="you won"
+  message="YOU WON THE GAME"
 //  console.log("you won")
-
+hasBlackJack = true
 }
 else
  {
-   message="you out"
+   message="Bad Luck : You are out of the game"
 //console.log("you out");
-
+isAlive = false
 }
 
 messageEl.textContent=message
