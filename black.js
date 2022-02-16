@@ -7,11 +7,15 @@ let message=""
 
 let sum=0
 let cards=[]
-
+// cards.push() -> push element at end of array
+// cards.pop() -> remove element at end of array
+// cards.shift() -> push element at start of array
+// cards.unshift() -> push element at start of array
 
 let hasBlackJack = false
 let isAlive = false
 
+// obejct creation // composite data types // key value pair
 let player = {
    name: "sarthak",
   chips: 145,
