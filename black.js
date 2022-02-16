@@ -1,21 +1,29 @@
 
-let firstcard=randomcard()
-let secondcard=randomcard()
-let cards=[firstcard,secondcard]
 
-let hasBlackJack = false
-let isAlive = true
 
-let sum=firstcard+secondcard
+
 
 let message=""
+
+let sum=0
+let cards=[]
+
+
+let hasBlackJack = false
+let isAlive = false
+
+let player = {
+   name: "sarthak",
+  chips: 145,
+}
 
 //
 let messageEl=document.getElementById("message-el")
 let sumEl=document.querySelector("#sum-el")
 let cardEl=document.querySelector("#card-el")
+let playerEl=document.getElementById("player-el")
 
-
+playerEl.textContent=player.name + " : " + player.chips
 
 function randomcard()
 {
@@ -30,23 +38,29 @@ return num
 
 function startGame()
  {
-Game()
+   isAlive=true
+   let firstcard=randomcard()
+   let secondcard=randomcard()
+    cards=[firstcard,secondcard]
+    sum=firstcard+secondcard
+   Game()
 }
 
 
 function Game()
 {
-  sumEl.textContent="Sum : "+sum
+
 
   cardEl.textContent="Cards :"
   for (let i=0; i< cards.length; i++)
   {
     cardEl.textContent+= cards[i] + " "
   }
+  sumEl.textContent="Sum : "+sum
 
 if(sum<21)
 {
-  message="Please Draw another card"
+  message="Please draw another card"
 //  console.log("draw")
 }
 else if(sum==21)
@@ -69,10 +83,13 @@ messageEl.textContent=message
 
 function newCard()
 {
+  if(isAlive === true && hasBlackJack ==false)
+  {
 let card=randomcard();
 sum+=card
 cards.push(card)
 Game()
+}
 }
 //messageEl.textContent=
  //console.log(message)
